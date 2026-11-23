@@ -5,7 +5,6 @@ import 'package:arcade_motoru/yilan.dart';
 import 'package:flutter/material.dart';
 import 'package:studio_core/app/arcade_stage.dart';
 import 'package:studio_core/app/game_api.dart';
-import 'package:studio_core/core/game_rules.dart';
 
 const yilanId = 'oyun-yilan';
 
@@ -88,7 +87,7 @@ final yilanConfig = GameConfig(
   rules: yilanRules,
   buildPlay: (ctx) => ArcadeStage(
     ctx: ctx,
-    create: () => yilanRules.createSim((ctx.generated as GeneratedLevel).puzzle),
+    create: () => yilanRules.createSim(ctx.generated.puzzle),
     paint: (c, s, p, t) {
       arcadeLang = ctx.lang;
       paintSnake(c, s, p, t);
